@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>esv agency</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
+
+
+
+
+
+</head>
+
+<body class="bg-black text-white">
+
+    <?php include "./component/header.php";
+
+    // include "./component/login.php";
+
+    ?>
+
+
+
+    <section class="bg-gray-500">
+        <header class="container mx-auto">
+
+            <div class="flex justify-between items-center py-3">
+                <div class="logo">
+
+                    <h1 class="text-xl font-bold">esv</h1>
+
+
+                </div>
+
+                <!-- <div class="menu">
+
+                <ul class="flex justify-between items-center gap-20">
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+
+            </div> -->
+
+
+                <?php
+
+                if (isset($_POST['login'])) {
+                    header("Location: http://localhost/esv/admin/component/login.php");
+                }
+
+
+                ?>
+
+
+                <form action="<?php $_SERVER["PHP_SELF"] ?>" method="post">
+
+                    <input class="mx-10 cursor-pointer" type="submit" name="login" value="login">
+                    <input class="cursor-pointer mx-10" type="submit" name="signup" value="signup">
+
+
+
+                </form>
+            </div>
+
+
+
+        </header>
+    </section>
+
+
+
+    <!-- <section class="mt-10">
+
+        <div class="details container mx-auto">
+
+
+            <?php
+
+            $conn = mysqli_connect("localhost", "root", "", "esv");
+            $sql = "SELECT * FROM agency";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+
+
+
+
+            ?>
+
+
+
+
+                <table class="border-collapse text-center border border-gray-400 w-full">
+                    <thead>
+
+
+                        <th class="border border-gray-300">id</th>
+                        <th class="border border-gray-300">name</th>
+                        <th class="border border-gray-300">email</th>
+                        <th class="border border-gray-300">role</th>
+                        </tr>
+                    </thead>
+
+                    <?php while ($row = mysqli_fetch_assoc($result)) {
+
+                    ?>
+
+                        <tbody>
+                            <td class="border border-gray-300"><?php echo $row['id']; ?></td>
+                            <td class="border border-gray-300"><?php echo $row['name']; ?></td>
+                            <td class="border border-gray-300"><?php echo $row['email']; ?></td>
+                            <td class="border border-gray-300"><?php echo $row['role']; ?></td>
+                            </tr>
+
+                        </tbody>
+
+                <?php }
+                } else {
+                    echo "0 results";
+                }
+
+                mysqli_close($conn);
+
+                ?>
+                </table>
+
+
+        </div>
+
+
+    </section> -->
+
+    <!-- <section class="mt-10">
+
+        <div class="form-section container mx-auto">
+            <h1 class="text-center py-7">Try yours</h1>
+            <form class="flex flex-col gap-4 items-center border border-gray-400 p-4 rounded-md" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
+                <input class="rounded-full border-1 py-2 px-4" type="text" name="name" placeholder="Name">
+                <input class="rounded-full border-1 py-2 px-4" type="email" name="email" placeholder="Email">
+                <input class="rounded-full border-1 py-2 px-4" type="text" name="blood_group" placeholder="Blood Group">
+                <input class="rounded-full border-1 py-2 px-4" type="text" name="role" placeholder="Role">
+                <input class="rounded-full border-1 py-2 px-4" type="password" name="password" placeholder="password">
+                <input type="submit" name="submit" value="Submit">
+
+            </form>
+        </div>
+
+        <?php
+
+
+
+        if (isset($_POST['submit'])) {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $blood_group = $_POST['blood_group'];
+            $role = $_POST['role'];
+            $pass = $_POST['password'];
+
+
+
+            $conn = mysqli_connect("localhost", "root", "", "esv");
+
+            $sql = "INSERT INTO aaa (name, email, blood_group, role, password) VALUES ('$name', '$email', '$blood_group', '$role', '$pass')";
+
+
+
+            if (mysqli_query($conn, $sql)) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+
+            mysqli_close($conn);
+        }
+
+
+
+
+        ?>
+
+
+
+    </section> -->
+
+
+    <section class="hero-section">
+
+        <div class="hero-content container mx-auto flex justify-between items-center gap-10 py-20">
+
+            <div class="left-heroSection w-1/2 flex flex-col justify-start items-start gap-5">
+
+                <h4>Welcome to ESV Agency</h4>
+                <h1>Es Variation - Your trusted Growth Partner</h1>
+                <p>We help businesses grow with data-driven Digital Marketing strategies. From SEO to social media, PPC, Content Marketing and Web Design - our Expert Team ensures your brand stands out in the digital landscape.</p>
+
+                <button class="btn">Book Free Consultation</button>
+                <div class="counter flex justify-start items-center gap-5">
+                    <div class="counter-item">
+                        <h2>350+</h2>
+                        <p>Clients</p>
+                    </div>
+
+                    <div class="counter-item">
+                        <h2>98+</h2>
+                        <p>Good reviews</p>
+                    </div>
+                    <div class="counter-item">
+                        <h2>50+</h2>
+                        <p>Successful projects</p>
+                    </div>
+
+                    <div class="counter-item">
+                        <h2>5+</h2>
+                        <p>Years of Experience</p>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="right-heroSection w-1/3">
+
+                <div class="picture">
+
+                    <img src="./assets/images/Screenshot 2025-08-08 180605.png" alt="">
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="services-section">
+
+        <div class="service-content container mx-auto flex justify-between items-center gap-10 py-15">
+            <div class="left-content">
+
+                <h2>Innovating to Empower Buissness Solutions</h2>
+                <p>We help to find a solution for your business fit and goals On-Demand Design, Develop to Lounch</p>
+
+            </div>
+            <div class="right-content grid grid-cols-2 gap-5">
+
+                <div class="icon-box bg-green-50 text-black p-[24px] rounded-lg">
+
+                    <div class="icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+                    <div class="icon-box-body">
+                        <h3>Digital Marketing</h3>
+
+                        <p>We help to find a solution for your business fit and goals. On-Demand, Design, Develop, Launch.</p>
+                    </div>
+
+                </div>
+
+                <div class="icon-box bg-green-50 text-black p-[24px] rounded-lg">
+
+                    <div class="icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+                    <div class="icon-box-body">
+                        <h3>Digital Marketing</h3>
+
+                        <p>We help to find a solution for your business fit and goals. On-Demand, Design, Develop, Launch.</p>
+                    </div>
+
+                </div>
+
+                <div class="icon-box bg-green-50 text-black p-[24px] rounded-lg">
+
+                    <div class="icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+                    <div class="icon-box-body">
+                        <h3>Digital Marketing</h3>
+
+                        <p>We help to find a solution for your business fit and goals. On-Demand, Design, Develop, Launch.</p>
+                    </div>
+
+                </div>
+
+                <div class="icon-box bg-green-50 text-black p-[24px] rounded-lg">
+
+                    <div class="icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+                    <div class="icon-box-body">
+                        <h3>Digital Marketing</h3>
+
+                        <p>We help to find a solution for your business fit and goals. On-Demand, Design, Develop, Launch.</p>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="work-section">
+        <div class="work-content container mx-auto">
+            <h2 class="mb-[20px]">Our Work</h2>
+
+            <div class="work-box-container mx-auto text-black grid grid-cols-4 gap-5">
+
+                <div class="work-box p-5 bg-white border-b-4 border-green-500 rounded-lg">
+                    <h4>Step 1</h4>
+                    <h3>In-Depth Analysis</h3>
+                    <p>We start with a thorough audit of your website and content to identify areas that need improvement or attention.</p>
+                </div>
+
+                <div class="work-box p-5 bg-white border-b-4 border-green-500 rounded-lg">
+                    <h4>Step 1</h4>
+                    <h3>Strategic Blueprint</h3>
+                    <p>Based on our findings, we create a solid and actionable plan tailored to resolve all identified challenges.</p>
+                </div>
+
+
+                <div class="work-box p-5 bg-white border-b-4 border-green-500 rounded-lg">
+                    <h4>Step 3</h4>
+                    <h3>Implementation & Optimization</h3>
+                    <p>Our team executes the strategy and makes necessary adjustments along the way to ensure optimal results.</p>
+                </div>
+
+                <div class="work-box p-5 bg-white border-b-4 border-green-500 rounded-lg">
+                    <h4>Step 4</h4>
+                    <h3>Ongoing Monitoring</h3>
+                    <p>We continuously track performance and provide reports to ensure the strategy remains effective and up-to-date.</p>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="buissness-section py-10">
+
+        <div class="buisness-container container mx-auto flex justify-between items-center gap-10">
+            <div class="left-buisness">
+                <h2>Our Buissness</h2>
+            </div>
+            <div class="right-business">
+                <h2>Driving Business Growth with Smart Digital Strategies</h2>
+                <p>ES Variation is a results-driven digital marketing agency dedicated to helping businesses achieve online success. With cutting-edge techniques and a passion for growth, we turn ideas into impactful campaigns.</p>
+
+                <button class="btn">Contact Us</button>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="reviews-section">
+
+        <div class="reviews-content container mx-auto py-10">
+            <h2 class="pb-7">What Our Clients Says ?</h2>
+
+            <div class="main-review-box flex justify-between items-center gap-10">
+                <div class="review-box bg-[#f0fdf4] p-5 rounded-lg text-black border-1 border-green-500">
+                    <div class="review-image text-yellow-500">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                    <div class="reivew-body">
+                        <p>The SMM campaigns they ran transformed our social media platforms. Engagement skyrocketed, our follower base grew steadily and their creative ad strategies helped us reach a wider audience much faster than expected.</p>
+
+                        <div class="reivewer">
+                            <img src="" alt="">
+                            <h4>John Doe</h4>
+                            <p>CEO of Company</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="review-box bg-[#f0fdf4] p-5 rounded-lg text-black border-1 border-green-500">
+                    <div class="review-image text-yellow-500">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                    <div class="reivew-body">
+                        <p>The SMM campaigns they ran transformed our social media platforms. Engagement skyrocketed, our follower base grew steadily and their creative ad strategies helped us reach a wider audience much faster than expected.</p>
+
+                        <div class="reivewer">
+                            <img src="" alt="">
+                            <h4>John Doe</h4>
+                            <p>CEO of Company</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="blog-section">
+
+        <div class="main-blog-content py-10">
+            <div class="blog-content container mx-auto flex justify-between items-center gap-10">
+
+                <div class="blog-box bg-white w-1/3  text-black rounded-lg">
+                    <div class="blog-image">
+                        <img src="./assets/images/web.jpg" alt="">
+                    </div>
+                    <div class="blog-body p-5 flex flex-col justify-between items-start gap-5">
+                        <h3>How SEO Can Transform Your Business</h3>
+                        <p>Unlock the potential of SEO to boost website traffic, enhance your online presence, and connect with a broader audience through improved search engine rankings and targeted visibility</p>
+
+                        <button class="bg-green-500 text-white py-2 px-4 rounded-md">Read More</button>
+                    </div>
+                </div>
+
+                <div class="blog-box bg-white  w-1/3 text-black rounded-lg">
+                    <div class="blog-image">
+                        <img src="./assets/images/mobile.jpg" alt="">
+                    </div>
+                    <div class="blog-body p-5 flex flex-col justify-between items-start gap-5">
+                        <h3>How SEO Can Transform Your Business</h3>
+                        <p>Unlock the potential of SEO to boost website traffic, enhance your online presence, and connect with a broader audience through improved search engine rankings and targeted visibility</p>
+
+                        <button class="bg-green-500 text-white py-2 px-4 rounded-md">Read More</button>
+                    </div>
+                </div>
+
+                <div class="blog-box bg-white  w-1/3 text-black rounded-lg">
+                    <div class="blog-image ">
+                        <img src="./assets/images/seo.jpg" alt="">
+                    </div>
+                    <div class="blog-body p-5 flex flex-col justify-between items-start gap-5">
+                        <h3>How SEO Can Transform Your Business</h3>
+                        <p>Unlock the potential of SEO to boost website traffic, enhance your online presence, and connect with a broader audience through improved search engine rankings and targeted visibility</p>
+
+                        <button class="bg-green-500 text-white py-2 px-4 rounded-md">Read More</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </section>
+    <!-- 
+    <section>
+        
+    </section> -->
+
+
+
+    <section class="bg-green-500">
+
+
+        <div class="footer container mx-auto  flex justify-between items-start gap-10 py-10">
+
+            <div class="footer-name w-1/3">
+
+                <div class="logo flex justify-start items-center">
+                    <img class="w-1/6 h-auto" src="./assets/images/logo.png" alt="logo">
+                    <h1>ES Variation</h1>
+                </div>
+
+                <p>We are a creative agency offering expert solutions in SEO,SMM,Web development, Graphics design, Marketing and more to grow your business digitally.</p>
+
+                <div class="social-icon">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="important-links w-1/3">
+
+                <h3>Important Links</h3>
+
+                <ul class="pt-5">
+                    <li>About</li>
+                    <li>Portfolio</li>
+                    <li>Contact</li>
+                </ul>
+
+
+
+            </div>
+
+            <div class="connect w-1/3 ">
+
+                <h2 class="pb-5">Let's Connect</h2>
+
+                <div class="icon-list flex justify-start items-center gap-5">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>Armi Para, Bandarban Sadar, Bandarban-4600</p>
+
+                </div>
+                <div class="icon-list flex justify-start items-center gap-5">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>+8801977693977</p>
+
+                </div>
+                <div class="icon-list flex justify-start items-center gap-5">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>hello@itesv.com</p>
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+        <div class="reserve container mx-auto pb-5">
+            <p class="text-center text-white text-sm">© 2022 ES Variation. All rights reserved.</p>
+        </div>
+
+
+    </section>
+
+
+
+
+</body>
+
+
+</html>
